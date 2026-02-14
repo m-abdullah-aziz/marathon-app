@@ -32,7 +32,7 @@ function App() {
   const [aidStationAlert, setAidStationAlert] = useState(null);
   const [screenOn, setScreenOn] = useState(false);
   
-  // Analytics data
+  // User Race Analytics data
   const [analyticsData, setAnalyticsData] = useState({
     dataPoints: [],
     events: [],
