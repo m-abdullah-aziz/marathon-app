@@ -406,97 +406,136 @@ input:focus, select:focus {
   margin-top: 15px;
 }
 
+.running-buttons {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.running-buttons .btn {
+  flex: 1;
+}
+
 /* Mobile responsive */
 @media (max-width: 480px) {
   .app {
-    padding: 10px;
-    padding-top: 60px;
+    padding: 8px;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
   }
 
   .container {
-    padding: 20px 15px;
-    border-radius: 16px;
+    padding: 12px 10px;
+    border-radius: 14px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
   }
 
   h1 {
-    font-size: 22px;
-    margin-bottom: 20px;
+    font-size: 18px;
+    margin-bottom: 8px;
+    flex-shrink: 0;
   }
 
   .theme-toggle {
     top: 10px;
     right: 10px;
-    padding: 8px 14px;
-    font-size: 13px;
-  }
-
-  .stats-grid {
-    gap: 10px;
-  }
-
-  .stat-card {
-    padding: 12px 8px;
-  }
-
-  .stat-value {
-    font-size: 20px;
-  }
-
-  .stat-value.large {
-    font-size: 30px;
-  }
-
-  .stat-label {
-    font-size: 11px;
-  }
-
-  .weather-info {
+    padding: 6px 12px;
     font-size: 12px;
-    padding: 8px;
-    line-height: 1.6;
+    gap: 4px;
   }
 
-  .alert {
-    padding: 12px;
-    font-size: 14px;
-  }
-
-  .analytics-section {
-    padding: 15px 12px;
-  }
-
-  .pace-chart {
-    height: 160px;
-  }
-
-  .splits-container {
-    max-height: 250px;
+  /* Setup screen - allow scroll since it has many fields */
+  .setup-screen {
+    flex: 1;
+    overflow-y: auto;
     -webkit-overflow-scrolling: touch;
   }
 
-  .split-item {
-    padding: 12px 8px;
+  .input-group {
+    margin-bottom: 12px;
+  }
+
+  label {
+    margin-bottom: 4px;
+    font-size: 13px;
+  }
+
+  input, select {
+    padding: 8px 10px;
     font-size: 15px;
   }
 
-  .export-buttons {
-    grid-template-columns: 1fr;
+  .checkbox-group {
+    margin-top: 8px;
+    min-height: 36px;
   }
 
-  .btn {
-    padding: 14px;
-    font-size: 16px;
-  }
-}
-
-/* Small phones */
-@media (max-width: 360px) {
-  .container {
-    padding: 15px 12px;
+  .checkbox-group label {
+    font-size: 14px;
   }
 
-  h1 {
-    font-size: 20px;
+  .aid-stations-input {
+    font-size: 12px;
+  }
+
+  /* Running screen - must fit one screen */
+  .running-screen {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .weather-info {
+    font-size: 11px;
+    padding: 6px 8px;
+    margin-bottom: 6px;
+    border-radius: 8px;
+    line-height: 1.4;
+    flex-shrink: 0;
+  }
+
+  .aid-station-alert {
+    padding: 6px 8px;
+    margin-bottom: 6px;
+    font-size: 13px;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+
+  .alert {
+    padding: 8px;
+    font-size: 13px;
+    margin-bottom: 6px;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+
+  .stats-grid {
+    gap: 6px;
+    margin-bottom: 8px;
+    flex: 1;
+  }
+
+  .stat-card {
+    padding: 6px 4px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .stat-label {
+    font-size: 9px;
+    margin-bottom: 2px;
+    letter-spacing: 0.5px;
   }
 
   .stat-value {
@@ -504,35 +543,171 @@ input:focus, select:focus {
   }
 
   .stat-value.large {
-    font-size: 26px;
+    font-size: 28px;
+  }
+
+  .btn {
+    padding: 10px;
+    font-size: 15px;
+    margin-top: 4px;
+    min-height: 42px;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+
+  /* Summary screen - allow scroll for splits/analytics */
+  .summary-screen {
+    flex: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .summary-screen h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .summary-screen h3 {
+    font-size: 15px;
+  }
+
+  .analytics-section {
+    padding: 12px 10px;
+  }
+
+  .pace-chart {
+    height: 140px;
+  }
+
+  .splits-container {
+    max-height: none;
+  }
+
+  .split-item {
+    padding: 8px 6px;
+    font-size: 14px;
+  }
+
+  .export-buttons {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-top: 10px;
+  }
+
+  .export-buttons .btn {
+    font-size: 13px;
+    padding: 8px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 360px) {
+  .app {
+    padding: 6px;
+    padding-top: 46px;
+  }
+
+  .container {
+    padding: 10px 8px;
+  }
+
+  h1 {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
+  .stat-value {
+    font-size: 16px;
+  }
+
+  .stat-value.large {
+    font-size: 24px;
+  }
+
+  .stat-label {
+    font-size: 8px;
   }
 
   .stats-grid {
-    gap: 8px;
+    gap: 4px;
+  }
+
+  .stat-card {
+    padding: 4px 3px;
+  }
+
+  .btn {
+    padding: 8px;
+    font-size: 14px;
+    min-height: 38px;
+  }
+
+  .weather-info {
+    font-size: 10px;
+    padding: 4px 6px;
+  }
+
+  .alert {
+    padding: 6px;
+    font-size: 12px;
   }
 }
 
 /* Safe area for notched phones */
 @supports (padding: env(safe-area-inset-top)) {
-  .app {
-    padding-top: max(20px, env(safe-area-inset-top));
-    padding-bottom: max(20px, env(safe-area-inset-bottom));
-    padding-left: max(10px, env(safe-area-inset-left));
-    padding-right: max(10px, env(safe-area-inset-right));
+  @media (max-width: 480px) {
+    .app {
+      padding-top: max(50px, calc(env(safe-area-inset-top) + 40px));
+      padding-bottom: env(safe-area-inset-bottom);
+      padding-left: max(8px, env(safe-area-inset-left));
+      padding-right: max(8px, env(safe-area-inset-right));
+    }
   }
 }
 
 /* Landscape on mobile */
 @media (max-height: 500px) and (orientation: landscape) {
   .stat-value.large {
-    font-size: 24px;
+    font-size: 22px;
+  }
+
+  .stat-value {
+    font-size: 15px;
   }
 
   .stats-grid {
-    gap: 8px;
+    gap: 4px;
   }
 
   .stat-card {
-    padding: 8px;
+    padding: 4px;
+  }
+
+  .stat-label {
+    font-size: 8px;
+  }
+
+  h1 {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+  .btn {
+    padding: 6px;
+    font-size: 13px;
+    min-height: 32px;
+    margin-top: 3px;
+  }
+
+  .alert {
+    padding: 4px;
+    font-size: 11px;
+    margin-bottom: 4px;
+  }
+
+  .weather-info {
+    padding: 3px 6px;
+    font-size: 10px;
+    margin-bottom: 4px;
   }
 }

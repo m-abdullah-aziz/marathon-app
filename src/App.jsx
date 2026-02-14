@@ -670,11 +670,12 @@ function App() {
               </div>
             </div>
             
-            <button className="btn btn-secondary" onClick={toggleScreenOn}>
-              {screenOn ? 'Screen On ✓' : 'Keep Screen On'}
-            </button>
-            
-            <button className="btn btn-danger" onClick={stopRace}>Finish Race</button>
+            <div className="running-buttons">
+              <button className="btn btn-secondary" onClick={toggleScreenOn}>
+                {screenOn ? 'Screen On ✓' : 'Keep Screen On'}
+              </button>
+              <button className="btn btn-danger" onClick={stopRace}>Finish Race</button>
+            </div>
           </div>
         )}
         
