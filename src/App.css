@@ -1,0 +1,399 @@
+.app {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  min-height: 100vh;
+  padding: 20px;
+  color: #e0e0e0;
+  transition: all 0.3s ease;
+}
+
+.app.light-theme {
+  background: linear-gradient(135deg, #ffd6e8 0%, #ffb3d9 100%);
+  color: #4a4a4a;
+}
+
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  background: #2d2d44;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  transition: all 0.3s ease;
+}
+
+.light-theme .container {
+  background: #fff0f6;
+  box-shadow: 0 20px 60px rgba(255,182,193,0.3);
+}
+
+h1 {
+  text-align: center;
+  color: #bb86fc;
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+.light-theme h1 {
+  color: #d946a6;
+}
+
+h2, h3 {
+  color: #bb86fc;
+}
+
+.light-theme h2,
+.light-theme h3 {
+  color: #d946a6;
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  padding: 10px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #e0e0e0;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.light-theme .theme-toggle {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: #ffb3d9;
+  color: #d946a6;
+}
+
+.light-theme .theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #b0b0b0;
+}
+
+.light-theme label {
+  color: #666;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #404060;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+  background: #1a1a2e;
+  color: #e0e0e0;
+}
+
+.light-theme input,
+.light-theme select {
+  background: white;
+  border-color: #ffb3d9;
+  color: #4a4a4a;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #bb86fc;
+}
+
+.light-theme input:focus,
+.light-theme select:focus {
+  border-color: #d946a6;
+}
+
+.btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 10px;
+}
+
+.btn-primary {
+  background: #bb86fc;
+  color: #1a1a2e;
+}
+
+.btn-primary:hover {
+  background: #9d6edb;
+  transform: translateY(-2px);
+}
+
+.light-theme .btn-primary {
+  background: #d946a6;
+  color: white;
+}
+
+.light-theme .btn-primary:hover {
+  background: #c23890;
+}
+
+.btn-success {
+  background: #03dac6;
+  color: #1a1a2e;
+}
+
+.light-theme .btn-success {
+  background: #ff85c0;
+  color: white;
+}
+
+.btn-danger {
+  background: #cf6679;
+  color: white;
+}
+
+.light-theme .btn-danger {
+  background: #ff6b9d;
+  color: white;
+}
+
+.btn-secondary {
+  background: #404060;
+  color: #e0e0e0;
+}
+
+.light-theme .btn-secondary {
+  background: #ffb3d9;
+  color: white;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  background: #1a1a2e;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid #404060;
+}
+
+.light-theme .stat-card {
+  background: white;
+  border-color: #ffd6e8;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #9e9e9e;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.light-theme .stat-label {
+  color: #999;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: #e0e0e0;
+}
+
+.light-theme .stat-value {
+  color: #4a4a4a;
+}
+
+.stat-value.large {
+  font-size: 36px;
+}
+
+.alert {
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-align: center;
+  animation: pulse 1s infinite;
+}
+
+.alert-danger {
+  background: #5a2633;
+  color: #ff6b9d;
+  border: 2px solid #cf6679;
+}
+
+.light-theme .alert-danger {
+  background: #ffe4ec;
+  color: #d32f5c;
+  border-color: #ff6b9d;
+}
+
+.alert-warning {
+  background: #4a3a1a;
+  color: #ffb74d;
+  border: 2px solid #ff9800;
+}
+
+.light-theme .alert-warning {
+  background: #fff3e0;
+  color: #e65100;
+  border-color: #ffb74d;
+}
+
+.alert-success {
+  background: #1a4a3a;
+  color: #03dac6;
+  border: 2px solid #03dac6;
+}
+
+.light-theme .alert-success {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border-color: #66bb6a;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.splits-container {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 20px;
+}
+
+.split-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #404060;
+  color: #e0e0e0;
+}
+
+.light-theme .split-item {
+  border-bottom-color: #ffd6e8;
+  color: #4a4a4a;
+}
+
+.split-item:last-child {
+  border-bottom: none;
+}
+
+.weather-info {
+  background: #1e3a5f;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #a0d8f1;
+  border: 1px solid #2d5a8a;
+}
+
+.light-theme .weather-info {
+  background: #e3f2fd;
+  color: #1565c0;
+  border-color: #90caf9;
+}
+
+.aid-station-alert {
+  background: #1e4d5f;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: 600;
+  color: #80deea;
+  border: 1px solid #2d7a8a;
+}
+
+.light-theme .aid-station-alert {
+  background: #e0f2f1;
+  color: #00796b;
+  border-color: #80cbc4;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: auto;
+  accent-color: #bb86fc;
+}
+
+.light-theme .checkbox-group input[type="checkbox"] {
+  accent-color: #d946a6;
+}
+
+.aid-stations-input {
+  font-size: 14px;
+  color: #9e9e9e;
+}
+
+.light-theme .aid-stations-input {
+  color: #888;
+}
+
+.analytics-section {
+  background: #1a1a2e;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  border: 1px solid #404060;
+}
+
+.light-theme .analytics-section {
+  background: white;
+  border-color: #ffd6e8;
+}
+
+.pace-chart {
+  width: 100%;
+  height: 200px;
+  background: #0f0f1e;
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 15px;
+  border: 1px solid #404060;
+}
+
+.light-theme .pace-chart {
+  background: #fafafa;
+  border-color: #ffd6e8;
+}
+
+.export-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 15px;
+}
