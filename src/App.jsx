@@ -135,14 +135,6 @@ function App() {
       }));
     }
     
-    // Google Analytics event
-    if (window.gtag) {
-      window.gtag('event', eventType, {
-        event_category: 'race',
-        event_label: raceName || 'unnamed',
-        ...data
-      });
-    }
   };
   
   const startRace = async () => {
