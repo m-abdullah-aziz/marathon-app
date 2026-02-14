@@ -1,60 +1,89 @@
 .app {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  background: #000000;
   min-height: 100vh;
   min-height: 100dvh;
   padding: 20px;
-  color: #e0e0e0;
+  padding-bottom: 40px;
+  color: #ffffff;
   transition: all 0.3s ease;
   -webkit-tap-highlight-color: transparent;
 }
 
-.app.light-theme {
-  background: linear-gradient(135deg, #ffd6e8 0%, #ffb3d9 100%);
-  color: #4a4a4a;
+/* ===== GREEN (LIGHT) THEME ===== */
+.light-theme {
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  color: #2e3d2f;
+}
+
+/* ===== GIRLIE (PINK) THEME ===== */
+.girlie-theme {
+  background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+  color: #5d3a4a;
 }
 
 .container {
   max-width: 500px;
   margin: 0 auto;
-  background: #2d2d44;
+  margin-bottom: 30px;
+  background: #0a0a0a;
   border-radius: 20px;
   padding: 30px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+  border: 1px solid #1a1a1a;
   transition: all 0.3s ease;
 }
 
 .light-theme .container {
+  background: #f1f8e9;
+  box-shadow: 0 20px 60px rgba(76,175,80,0.15);
+}
+
+.girlie-theme .container {
   background: #fff0f6;
   box-shadow: 0 20px 60px rgba(255,182,193,0.3);
+  border: 2px solid #f8bbd0;
 }
 
 h1 {
   text-align: center;
-  color: #bb86fc;
+  color: #4caf50;
   margin-bottom: 30px;
   font-size: 28px;
 }
 
 .light-theme h1 {
-  color: #d946a6;
+  color: #2e7d32;
+}
+
+.girlie-theme h1 {
+  color: #e91e90;
+}
+
+.bow {
+  font-size: 0.8em;
 }
 
 h2, h3 {
-  color: #bb86fc;
+  color: #4caf50;
 }
 
 .light-theme h2,
 .light-theme h3 {
-  color: #d946a6;
+  color: #2e7d32;
+}
+
+.girlie-theme h2,
+.girlie-theme h3 {
+  color: #e91e90;
 }
 
 .theme-toggle {
   position: fixed;
   top: 20px;
   right: 20px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: rgba(76, 175, 80, 0.15);
+  border: 2px solid rgba(76, 175, 80, 0.3);
   border-radius: 50px;
   padding: 10px 20px;
   cursor: pointer;
@@ -63,25 +92,35 @@ h2, h3 {
   gap: 8px;
   font-size: 14px;
   font-weight: 600;
-  color: #e0e0e0;
+  color: #a5d6a7;
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
   z-index: 1000;
 }
 
 .theme-toggle:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(76, 175, 80, 0.25);
   transform: scale(1.05);
 }
 
 .light-theme .theme-toggle {
-  background: rgba(255, 255, 255, 0.6);
-  border-color: #ffb3d9;
-  color: #d946a6;
+  background: rgba(255, 255, 255, 0.7);
+  border-color: #81c784;
+  color: #2e7d32;
 }
 
 .light-theme .theme-toggle:hover {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.girlie-theme .theme-toggle {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: #f48fb1;
+  color: #c2185b;
+}
+
+.girlie-theme .theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .input-group {
@@ -92,22 +131,26 @@ label {
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
-  color: #b0b0b0;
+  color: #81c784;
 }
 
 .light-theme label {
-  color: #666;
+  color: #4a6a4c;
+}
+
+.girlie-theme label {
+  color: #8e5068;
 }
 
 input, select {
   width: 100%;
   padding: 12px;
-  border: 2px solid #404060;
+  border: 2px solid #2a2a2a;
   border-radius: 10px;
   font-size: 16px;
   transition: border-color 0.3s;
-  background: #1a1a2e;
-  color: #e0e0e0;
+  background: #111111;
+  color: #ffffff;
   -webkit-appearance: none;
   appearance: none;
   box-sizing: border-box;
@@ -116,18 +159,30 @@ input, select {
 .light-theme input,
 .light-theme select {
   background: white;
-  border-color: #ffb3d9;
-  color: #4a4a4a;
+  border-color: #a5d6a7;
+  color: #2e3d2f;
+}
+
+.girlie-theme input,
+.girlie-theme select {
+  background: #fff5f8;
+  border-color: #f48fb1;
+  color: #5d3a4a;
 }
 
 input:focus, select:focus {
   outline: none;
-  border-color: #bb86fc;
+  border-color: #4caf50;
 }
 
 .light-theme input:focus,
 .light-theme select:focus {
-  border-color: #d946a6;
+  border-color: #43a047;
+}
+
+.girlie-theme input:focus,
+.girlie-theme select:focus {
+  border-color: #e91e90;
 }
 
 .btn {
@@ -145,31 +200,45 @@ input:focus, select:focus {
 }
 
 .btn-primary {
-  background: #bb86fc;
-  color: #1a1a2e;
+  background: #4caf50;
+  color: #000000;
 }
 
 .btn-primary:hover {
-  background: #9d6edb;
+  background: #388e3c;
   transform: translateY(-2px);
 }
 
 .light-theme .btn-primary {
-  background: #d946a6;
+  background: #43a047;
   color: white;
 }
 
 .light-theme .btn-primary:hover {
-  background: #c23890;
+  background: #2e7d32;
+}
+
+.girlie-theme .btn-primary {
+  background: #e91e90;
+  color: white;
+}
+
+.girlie-theme .btn-primary:hover {
+  background: #c2185b;
 }
 
 .btn-success {
-  background: #03dac6;
-  color: #1a1a2e;
+  background: #66bb6a;
+  color: #000000;
 }
 
 .light-theme .btn-success {
-  background: #ff85c0;
+  background: #66bb6a;
+  color: white;
+}
+
+.girlie-theme .btn-success {
+  background: #f48fb1;
   color: white;
 }
 
@@ -179,18 +248,29 @@ input:focus, select:focus {
 }
 
 .light-theme .btn-danger {
+  background: #e53935;
+  color: white;
+}
+
+.girlie-theme .btn-danger {
   background: #ff6b9d;
   color: white;
 }
 
 .btn-secondary {
-  background: #404060;
-  color: #e0e0e0;
+  background: #1a1a1a;
+  color: #a5d6a7;
+  border: 1px solid #2a2a2a;
 }
 
 .light-theme .btn-secondary {
-  background: #ffb3d9;
-  color: white;
+  background: #a5d6a7;
+  color: #1b5e20;
+}
+
+.girlie-theme .btn-secondary {
+  background: #f8bbd0;
+  color: #880e4f;
 }
 
 .stats-grid {
@@ -201,37 +281,50 @@ input:focus, select:focus {
 }
 
 .stat-card {
-  background: #1a1a2e;
+  background: #0f0f0f;
   padding: 15px;
   border-radius: 10px;
   text-align: center;
-  border: 1px solid #404060;
+  border: 1px solid #1e1e1e;
 }
 
 .light-theme .stat-card {
   background: white;
-  border-color: #ffd6e8;
+  border-color: #c8e6c9;
+}
+
+.girlie-theme .stat-card {
+  background: #fff5f8;
+  border-color: #f8bbd0;
 }
 
 .stat-label {
   font-size: 12px;
-  color: #9e9e9e;
+  color: #66bb6a;
   margin-bottom: 5px;
   text-transform: uppercase;
 }
 
 .light-theme .stat-label {
-  color: #999;
+  color: #6a8f6c;
+}
+
+.girlie-theme .stat-label {
+  color: #b07090;
 }
 
 .stat-value {
   font-size: 24px;
   font-weight: 700;
-  color: #e0e0e0;
+  color: #ffffff;
 }
 
 .light-theme .stat-value {
-  color: #4a4a4a;
+  color: #2e3d2f;
+}
+
+.girlie-theme .stat-value {
+  color: #5d3a4a;
 }
 
 .stat-value.large {
@@ -248,21 +341,27 @@ input:focus, select:focus {
 }
 
 .alert-danger {
-  background: #5a2633;
-  color: #ff6b9d;
-  border: 2px solid #cf6679;
+  background: #1a0a0a;
+  color: #ff6b6b;
+  border: 2px solid #cc3333;
 }
 
 .light-theme .alert-danger {
-  background: #ffe4ec;
+  background: #ffebee;
+  color: #c62828;
+  border-color: #ef5350;
+}
+
+.girlie-theme .alert-danger {
+  background: #fce4ec;
   color: #d32f5c;
   border-color: #ff6b9d;
 }
 
 .alert-warning {
-  background: #4a3a1a;
-  color: #ffb74d;
-  border: 2px solid #ff9800;
+  background: #1a1500;
+  color: #ffcc00;
+  border: 2px solid #cc9900;
 }
 
 .light-theme .alert-warning {
@@ -271,16 +370,28 @@ input:focus, select:focus {
   border-color: #ffb74d;
 }
 
+.girlie-theme .alert-warning {
+  background: #fff3e0;
+  color: #e65100;
+  border-color: #ffcc80;
+}
+
 .alert-success {
-  background: #1a4a3a;
-  color: #03dac6;
-  border: 2px solid #03dac6;
+  background: #0a1a0a;
+  color: #4caf50;
+  border: 2px solid #388e3c;
 }
 
 .light-theme .alert-success {
   background: #e8f5e9;
   color: #2e7d32;
   border-color: #66bb6a;
+}
+
+.girlie-theme .alert-success {
+  background: #fce4ec;
+  color: #e91e90;
+  border-color: #f48fb1;
 }
 
 @keyframes pulse {
@@ -298,13 +409,18 @@ input:focus, select:focus {
   display: flex;
   justify-content: space-between;
   padding: 10px;
-  border-bottom: 1px solid #404060;
-  color: #e0e0e0;
+  border-bottom: 1px solid #1e1e1e;
+  color: #ffffff;
 }
 
 .light-theme .split-item {
-  border-bottom-color: #ffd6e8;
-  color: #4a4a4a;
+  border-bottom-color: #c8e6c9;
+  color: #2e3d2f;
+}
+
+.girlie-theme .split-item {
+  border-bottom-color: #f8bbd0;
+  color: #5d3a4a;
 }
 
 .split-item:last-child {
@@ -312,37 +428,49 @@ input:focus, select:focus {
 }
 
 .weather-info {
-  background: #1e3a5f;
+  background: #0a0f0a;
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 20px;
   text-align: center;
   font-size: 14px;
-  color: #a0d8f1;
-  border: 1px solid #2d5a8a;
+  color: #a5d6a7;
+  border: 1px solid #1e1e1e;
 }
 
 .light-theme .weather-info {
-  background: #e3f2fd;
-  color: #1565c0;
-  border-color: #90caf9;
+  background: #e8f5e9;
+  color: #1b5e20;
+  border-color: #a5d6a7;
+}
+
+.girlie-theme .weather-info {
+  background: #fce4ec;
+  color: #880e4f;
+  border-color: #f48fb1;
 }
 
 .aid-station-alert {
-  background: #1e4d5f;
+  background: #0a0f0a;
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 15px;
   text-align: center;
   font-weight: 600;
-  color: #80deea;
-  border: 1px solid #2d7a8a;
+  color: #81c784;
+  border: 1px solid #1e1e1e;
 }
 
 .light-theme .aid-station-alert {
-  background: #e0f2f1;
-  color: #00796b;
-  border-color: #80cbc4;
+  background: #e8f5e9;
+  color: #2e7d32;
+  border-color: #81c784;
+}
+
+.girlie-theme .aid-station-alert {
+  background: #fce4ec;
+  color: #c2185b;
+  border-color: #f48fb1;
 }
 
 .checkbox-group {
@@ -355,48 +483,66 @@ input:focus, select:focus {
 
 .checkbox-group input[type="checkbox"] {
   width: auto;
-  accent-color: #bb86fc;
+  accent-color: #4caf50;
 }
 
 .light-theme .checkbox-group input[type="checkbox"] {
-  accent-color: #d946a6;
+  accent-color: #43a047;
+}
+
+.girlie-theme .checkbox-group input[type="checkbox"] {
+  accent-color: #e91e90;
 }
 
 .aid-stations-input {
   font-size: 14px;
-  color: #9e9e9e;
+  color: #66bb6a;
 }
 
 .light-theme .aid-stations-input {
-  color: #888;
+  color: #6a8f6c;
+}
+
+.girlie-theme .aid-stations-input {
+  color: #b07090;
 }
 
 .analytics-section {
-  background: #1a1a2e;
+  background: #0a0a0a;
   padding: 20px;
   border-radius: 10px;
   margin-top: 20px;
-  border: 1px solid #404060;
+  border: 1px solid #1e1e1e;
 }
 
 .light-theme .analytics-section {
   background: white;
-  border-color: #ffd6e8;
+  border-color: #c8e6c9;
+}
+
+.girlie-theme .analytics-section {
+  background: #fff5f8;
+  border-color: #f8bbd0;
 }
 
 .pace-chart {
   width: 100%;
   height: 200px;
-  background: #0f0f1e;
+  background: #050505;
   border-radius: 8px;
   padding: 10px;
   margin-top: 15px;
-  border: 1px solid #404060;
+  border: 1px solid #1e1e1e;
 }
 
 .light-theme .pace-chart {
-  background: #fafafa;
-  border-color: #ffd6e8;
+  background: #f9fbe7;
+  border-color: #c8e6c9;
+}
+
+.girlie-theme .pace-chart {
+  background: #fff0f5;
+  border-color: #f8bbd0;
 }
 
 .export-buttons {
@@ -421,6 +567,7 @@ input:focus, select:focus {
   .app {
     padding: 8px;
     padding-top: 50px;
+    padding-bottom: 20px;
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -431,6 +578,7 @@ input:focus, select:focus {
   .container {
     padding: 12px 10px;
     border-radius: 14px;
+    margin-bottom: 10px;
     flex: 1;
     display: flex;
     flex-direction: column;

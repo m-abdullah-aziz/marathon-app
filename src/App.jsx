@@ -55,8 +55,10 @@ function App() {
   }, []);
   
   // Toggle theme
+  const themes = ['dark', 'light', 'girlie'];
   const toggleTheme = () => {
-    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    const currentIndex = themes.indexOf(theme);
+    const newTheme = themes[(currentIndex + 1) % themes.length];
     setTheme(newTheme);
     localStorage.setItem('theme', newTheme);
   };
@@ -442,24 +444,30 @@ function App() {
     
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
-    const isLight = theme === 'light';
-    
+
+    const chartColors = {
+      dark:   { grid: '#1e1e1e', target: '#4caf50', line: '#81c784', label: '#66bb6a' },
+      light:  { grid: '#c8e6c9', target: '#2e7d32', line: '#43a047', label: '#666' },
+      girlie: { grid: '#ffd6e8', target: '#d946a6', line: '#ff85c0', label: '#b06080' }
+    };
+    const colors = chartColors[theme] || chartColors.dark;
+
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
-    
+
     const paces = splits.map(s => s.pace);
     const maxPace = Math.max(...paces);
     const minPace = Math.min(...paces);
     const range = maxPace - minPace;
-    
+
     const padding = 40;
     const chartWidth = canvas.width - padding * 2;
     const chartHeight = canvas.height - padding * 2;
-    
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
+
     // Grid
-    ctx.strokeStyle = isLight ? '#ffd6e8' : '#404060';
+    ctx.strokeStyle = colors.grid;
     ctx.lineWidth = 1;
     for (let i = 0; i <= 5; i++) {
       const y = padding + (chartHeight / 5) * i;
@@ -468,9 +476,9 @@ function App() {
       ctx.lineTo(canvas.width - padding, y);
       ctx.stroke();
     }
-    
+
     // Target line
-    ctx.strokeStyle = isLight ? '#d946a6' : '#bb86fc';
+    ctx.strokeStyle = colors.target;
     ctx.lineWidth = 2;
     ctx.setLineDash([5, 5]);
     const targetY = padding + chartHeight - ((targetPace - minPace) / (range || 1)) * chartHeight;
@@ -479,51 +487,51 @@ function App() {
     ctx.lineTo(canvas.width - padding, targetY);
     ctx.stroke();
     ctx.setLineDash([]);
-    
+
     // Pace line
-    ctx.strokeStyle = isLight ? '#ff85c0' : '#03dac6';
+    ctx.strokeStyle = colors.line;
     ctx.lineWidth = 3;
     ctx.beginPath();
-    
+
     splits.forEach((split, i) => {
       const x = padding + (chartWidth / (splits.length - 1 || 1)) * i;
       const y = padding + chartHeight - ((split.pace - minPace) / (range || 1)) * chartHeight;
-      
+
       if (i === 0) {
         ctx.moveTo(x, y);
       } else {
         ctx.lineTo(x, y);
       }
     });
-    
+
     ctx.stroke();
-    
+
     // Points
     splits.forEach((split, i) => {
       const x = padding + (chartWidth / (splits.length - 1 || 1)) * i;
       const y = padding + chartHeight - ((split.pace - minPace) / (range || 1)) * chartHeight;
-      
-      ctx.fillStyle = isLight ? '#ff85c0' : '#03dac6';
+
+      ctx.fillStyle = colors.line;
       ctx.beginPath();
       ctx.arc(x, y, 4, 0, Math.PI * 2);
       ctx.fill();
     });
-    
+
     // Label
-    ctx.fillStyle = isLight ? '#666' : '#9e9e9e';
+    ctx.fillStyle = colors.label;
     ctx.font = '12px sans-serif';
     ctx.fillText(`Target: ${formatPace(targetPace)}`, padding, targetY - 5);
   }, [screen, splits, theme, targetPace]);
   
   return (
-    <div className={`app ${theme === 'light' ? 'light-theme' : ''}`}>
+    <div className={`app ${theme}-theme`}>
       <div className="theme-toggle" onClick={toggleTheme}>
-        <span>{theme === 'light' ? '☀️' : '🌙'}</span>
-        <span>{theme === 'light' ? 'Light' : 'Dark'}</span>
+        <span>{theme === 'dark' ? '🌙' : theme === 'light' ? '🌿' : '🎀'}</span>
+        <span>{theme === 'dark' ? 'Dark' : theme === 'light' ? 'Green' : 'Girlie'}</span>
       </div>
       
       <div className="container">
-        <h1>🏃 Marathon Pace Buddy</h1>
+        <h1>{theme === 'girlie' && <span className="bow">🎀 </span>}🏃 Marathon Pace Buddy{theme === 'girlie' && <span className="bow"> 🎀</span>}</h1>
         
         {/* Setup Screen */}
         {screen === 'setup' && (
